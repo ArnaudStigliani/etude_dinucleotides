@@ -13,7 +13,7 @@ dinuc <- read.table("table.txt",header=TRUE,sep="\t")
 
 #----------------------- read fasta ------------------------------------
 
-ARF <- readDNAStringSet("ARF5_unbound_100nuc.fas")
+ARF <- readDNAStringSet("ARF5_unbound.fasta")
 #ARF <- narrow(ARF,start=35,width=30)
 reg_size <- mean(width(ARF))
 
