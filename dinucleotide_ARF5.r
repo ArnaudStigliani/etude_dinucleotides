@@ -13,7 +13,7 @@ dinuc <- read.table("table.txt",header=TRUE,sep="\t")
 
 #----------------------- read fasta ------------------------------------
 
-ARF <- readDNAStringSet("ARF5_DR26.fas")
+ARF <- readDNAStringSet("ARF5_unbound_100nuc.fas")
 #ARF <- narrow(ARF,start=35,width=30)
 reg_size <- mean(width(ARF))
 
@@ -52,7 +52,7 @@ tableau <- tableau[!sapply(names,FUN=str_detect,pattern="RNA"),]
 ## tab_heatmap <- heatmap(tableau, Rowv=NA, Colv=NA, col = rainbow(256,start=3/6,end=4/6), margins=c(5,10))
 ## dev.off()
 
-write.table(tableau,"property_ARF5_DR26_bound_brut.csv", sep="\t",col.names=FALSE,quote=FALSE)
+write.table(tableau,"property_ARF5_unbound_brut.csv", sep="\t",col.names=FALSE,quote=FALSE)
 
 
 
