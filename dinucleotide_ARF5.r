@@ -59,50 +59,35 @@ write.table(tableau,"property_ARF5_DR26_bound_brut.csv", sep="\t",col.names=FALS
 
 ##############################"Normalisation#############################################
 
+# La normalisation est désactivée
+
+
+## bound <- read.csv("property_ARF5_bound_brut.csv",header=FALSE,sep="\t")
+## names_bound <- bound[,1]
+## bound <- data.matrix(bound[,-1])
+## rownames(bound) <- names_bound
+## colnames(bound) <- c(1:99)
+
+## unbound <- read.table("property_ARF5_unbound_brut.csv",header=FALSE,sep="\t")
+## names_unbound <- unbound[,1] 
+## unbound <- data.matrix(unbound[,-1])
+## rownames(unbound) <- names_unbound
+## colnames(unbound) <- c(1:99)
 
 
 
-bound <- read.csv("property_ARF5_bound_brut.csv",header=FALSE,sep="\t")
-names_bound <- bound[,1]
-bound <- data.matrix(bound[,-1])
-rownames(bound) <- names_bound
-colnames(bound) <- c(1:99)
+## tab_2 <- cbind(bound)#,unbound)
+## tab_shift <- tab_2
+## mini <- apply(tab_2,FUN=min,1)
+## tab_2 <- tab_2-mini
+## maxi <- apply(tab_2,FUN=max,1)
 
-unbound <- read.table("property_ARF5_unbound_brut.csv",header=FALSE,sep="\t")
-names_unbound <- unbound[,1] 
-unbound <- data.matrix(unbound[,-1])
-rownames(unbound) <- names_unbound
-colnames(unbound) <- c(1:99)
+## bound <- (bound-mini)/maxi
+## unbound <- (unbound-mini)/maxi
 
 
 
-tab_2 <- cbind(bound)#,unbound)
-tab_shift <- tab_2
-mini <- apply(tab_2,FUN=min,1)
-tab_2 <- tab_2-mini
-maxi <- apply(tab_2,FUN=max,1)
+## write.table(bound,"property_ARF5_DR26_bound_normalized_-min_sur_max.csv", sep="\t",col.names=FALSE,quote=FALSE)
+## write.table(unbound,"property_ARF5_unbound_normalized_-min_sur_max.csv", sep="\t",col.names=FALSE,quote=FALSE)
 
-bound <- (bound-mini)/maxi
-unbound <- (unbound-mini)/maxi
-
-
-
-write.table(bound,"property_ARF5_DR26_bound_normalized_-min_sur_max.csv", sep="\t",col.names=FALSE,quote=FALSE)
-write.table(unbound,"property_ARF5_unbound_normalized_-min_sur_max.csv", sep="\t",col.names=FALSE,quote=FALSE)
-
-
-## tab_shift_m <- matrix(c(tab_shift),nrow=2,byrow=TRUE)
-
-
-## png("heatmap_Adrien_max.png",1800,1200)
-## tab_heatmap <- heatmap(tab_shift_m, Rowv=NA, Colv=NA, col = rainbow(256,start=3/6,end=4/6), margins=c(5,10))
-## dev.off()
-## write.table(tab_shift_m_2,"property_ARF5_Adrien.csv", sep="\t",col.names=FALSE,quote=FALSE)
-
-## ref <- bound-unbound
-## colnames(ref) <- c(1:99)
-
-## p <- plot_ly(z = tab_shift, type = "heatmap")
-
-## dev.off()
 
