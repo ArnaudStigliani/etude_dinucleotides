@@ -79,7 +79,6 @@ for (i in 1:(dim_score_neg[2]))
 
 p_value <- matrix(0,dim(dinuc)[1],reg_size-1)
 rownames(p_value) <- dinuc[,2]
-colnames(p_value) <- c(1:(reg_size-1))
 for (i in 1:(dim(p_value)[1]))
 {
     for (j in 1:(dim(p_value)[2]))
@@ -96,4 +95,4 @@ for (i in 1:(dim(p_value)[1]))
     print(i)
 }
 
-write.table(p_value,"p_values_ARF5.csv",sep="\t",quote=FALSE)
+write.table(p_value,"p_values_ARF5.csv",sep="\t",quote=FALSE,col.names=FALSE)
